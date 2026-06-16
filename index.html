@@ -192,7 +192,7 @@
       animation: flap-move 3.5s ease-in-out infinite;
     }
 
-    /* ── URALKO DÓ AIR FLOW ÉS KÖRNYEZETI IZZÁS ── */
+    /* ── KIZÁRÓLAG KÉK AIR FLOW ÉS RESET LOGIKA ── */
     .airflow {
       position: absolute;
       top: calc(100% - 8.2rem);
@@ -204,7 +204,7 @@
       pointer-events: none;
     }
     
-    /* Dinamikus háttérfény a klíma körül (Pirosas alapból, kékes hűtéskor) */
+    /* Környezeti kék háttérfény hűtéshez */
     .air-glow {
       position: absolute;
       top: -1.2rem;
@@ -213,57 +213,51 @@
       width: 85%;
       height: 4.5rem;
       border-radius: 50%;
-      /* Alapértelmezett intenzív meleg piros izzás 30 fokhoz */
-      background: radial-gradient(ellipse at center, rgba(239, 68, 68, 0.32) 0%, rgba(239, 68, 68, 0.08) 45%, transparent 70%);
+      background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.38) 0%, rgba(14, 165, 233, 0.1) 45%, transparent 70%);
       filter: blur(4px);
-      transition: background 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    /* Csak akkor pulzál és látható, ha az .airflow megkapja az .active-flow osztályt (22 foknál) */
+    .airflow.active-flow .air-glow {
+      opacity: 1;
       animation: glow-pulse 3s ease-in-out infinite;
     }
-    /* Kék hűtési környezeti fény */
-    .ac-screen.cooling ~ .airflow .air-glow {
-      background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.38) 0%, rgba(14, 165, 233, 0.1) 45%, transparent 70%);
-    }
 
-    /* Levegőáramlás hullámai és részecskéi */
+    /* Levegőáramlás hullámai - Kizárólag szép neonkék */
     .air-wave {
       position: absolute;
       left: 50%; width: 80%; height: 2.2rem;
       transform: translateX(-50%) scale(0.7); opacity: 0; border-radius: 999px;
-      /* Dinamikus színek a mód alapján */
-      border: 1.5px solid rgba(239, 68, 68, 0.4);
-      transition: border-color 0.4s ease;
-      animation: air-wave 3.2s ease-out infinite;
     }
-    .ac-screen.cooling ~ .airflow .air-wave {
-      border-color: rgba(56, 189, 248, 0.55);
+    .airflow.active-flow .air-wave {
+      animation: air-wave 3.2s ease-out infinite;
     }
     .air-wave.w1 { top: 0rem; animation-delay: 0s; }
     .air-wave.w2 { top: 2.2rem; width: 68%; animation-delay: 1s; }
     .air-wave.w3 { top: 4.4rem; width: 54%; animation-delay: 2s; }
 
+    /* Levegőáramlás sávok - Kizárólag kék */
     .air-stream {
       position: absolute; left: 50%; width: 75%; height: 0.6rem; transform: translateX(-50%);
       border-radius: var(--radius-full);
-      background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.6), transparent);
-      filter: blur(2px); opacity: 0;
-      transition: background 0.4s ease;
-      animation: airflow-drift 3s ease-in-out infinite;
-    }
-    .ac-screen.cooling ~ .airflow .air-stream {
       background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.8), transparent);
+      filter: blur(2px); opacity: 0;
+    }
+    .airflow.active-flow .air-stream {
+      animation: airflow-drift 3s ease-in-out infinite;
     }
     .air-stream.s1 { top: 0.8rem; animation-delay: 0s; }
     .air-stream.s2 { top: 3rem; width: 60%; animation-delay: 0.8s; }
     .air-stream.s3 { top: 5.2rem; width: 45%; animation-delay: 1.6s; }
 
+    /* Részecskék - Kizárólag kék */
     .air-particle {
       position: absolute; width: 0.38rem; height: 0.38rem; border-radius: 50%;
-      background: rgba(239, 68, 68, 0.7); opacity: 0;
-      transition: background 0.4s ease;
-      animation: particle-drift 3.6s ease-in infinite;
+      background: rgba(56, 189, 248, 0.75); opacity: 0;
     }
-    .ac-screen.cooling ~ .airflow .air-particle {
-      background: rgba(56, 189, 248, 0.75);
+    .airflow.active-flow .air-particle {
+      animation: particle-drift 3.6s ease-in infinite;
     }
     .air-particle.p1 { left: 28%; top: 0.5rem; animation-delay: 0.2s; }
     .air-particle.p2 { left: 58%; top: 0.2rem; animation-delay: 1s; }
@@ -293,7 +287,7 @@
       50%       { opacity: 1;    transform: translateX(-50%) scale(1.04); }
     }
 
-    /* ── TÁVOLABB ELHELYEZETT, TELJESEN INTERAKTÍV TÁVIRÁNYÍTÓ ── */
+    /* ── TÁVIRÁNYÍTÓ STÍLUSOK ── */
     .remote-control {
       position: absolute;
       bottom: 0rem;
@@ -511,7 +505,7 @@
                 </div>
               </div>
               
-              <div class="airflow">
+              <div class="airflow" id="airFlowContainer">
                 <div class="air-glow"></div>
                 <span class="air-wave w1"></span>
                 <span class="air-wave w2"></span>
@@ -611,7 +605,7 @@
                 <select id="propertyType" name="propertyType"><option>Lakás</option><option>Családi ház</option><option>Iroda</option><option>Üzlethelyiség</option></select>
               </div>
               <div class="field"><label for="preferredDate">Kívánt dátum</label><input id="preferredDate" name="preferredDate" type="date" /></div>
-              <div class="field" data-span="2"><label for="notes">Megjegyzés</label><textarea id="notes" name="notes" placeholder="Írd le a részleteket..."></textarea></div>
+              <div class="field" data-span="2"><label for="notes">Megjegyzés</label><textarea id="notes" name="notes" placeholder="Írd le a részteleket..."></textarea></div>
             </div>
             <label class="checkbox-row" for="consent"><input id="consent" name="consent" type="checkbox" required /><span>Elfogadom a feltételeket.</span></label>
             <div class="card-actions"><button class="btn btn-primary" type="submit">Szolgáltatás regisztrálása</button><span class="status-note" id="formStatus" aria-live="polite"></span></div>
@@ -638,11 +632,21 @@
       const acScreen = document.getElementById('acScreen');
       const remote = document.getElementById('remote');
       const remoteScreen = document.getElementById('remoteScreen');
+      const airFlowContainer = document.getElementById('airFlowContainer');
 
       let currentTemp = 30;
       let targetTemp = 22;
       let isCounting = false;
       let countingInterval = null;
+
+      // Segédfunkció az AirFlow állapot frissítésére a pontos hőmérséklet alapján
+      function checkAirFlowVisibility(temp) {
+        if (temp === 22) {
+          airFlowContainer.classList.add('active-flow');
+        } else {
+          airFlowContainer.classList.remove('active-flow');
+        }
+      }
 
       // Hőfokváltás oda-vissza kezelése
       function toggleACState() {
@@ -659,10 +663,15 @@
           
           if (targetTemp === 22) {
             remote.classList.add('cooling-mode');
-            acScreen.classList.add('cooling'); // CSS-ben ez váltja kékké a kijelzőt és az airflow-t is
+            acScreen.classList.add('cooling');
+            // airFlowContainer.classList.add('active-flow');
+            checkAirFlowVisibility(targetTemp);
+
           } else {
             remote.classList.remove('cooling-mode');
-            acScreen.classList.remove('cooling'); // Visszavált pirosas meleg módra
+            acScreen.classList.remove('cooling');
+            // Azonnal lőjük le az áramlást, ha elindulunk felfelé 30 fokra
+            checkAirFlowVisibility(targetTemp);
           }
 
           clearInterval(countingInterval);
@@ -675,17 +684,23 @@
 
             acScreen.setAttribute('data-temp', currentTemp);
             remoteScreen.textContent = currentTemp + '°C';
+            
+            // Folyamatosan ellenőrzi, hogy elértük-e a stabil 22 fokot
+            checkAirFlowVisibility(targetTemp);
 
             if (currentTemp === targetTemp) {
               clearInterval(countingInterval);
               isCounting = false;
             }
-          }, 300); // Tempós, reszponzív számlálás
+          }, 300);
           
         }, 400);
       }
 
       remote.addEventListener('click', toggleACState);
+
+      // Kezdeti állapot beállítása (leállított áramlás 30 fokon)
+      checkAirFlowVisibility(null);
 
       // Automatikus első hűtésindítás 1.8 másodperc után
       setTimeout(() => {
@@ -701,6 +716,8 @@
               currentTemp--;
               acScreen.setAttribute('data-temp', currentTemp);
               remoteScreen.textContent = currentTemp + '°C';
+              
+              checkAirFlowVisibility(targetTemp);
               
               if (currentTemp <= 22) {
                 clearInterval(countingInterval);

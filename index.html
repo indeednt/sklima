@@ -74,15 +74,9 @@
     .airflow-logo .stream-bot { stroke-dasharray: 25; }
 
     .nav-brand-text {
-      display: inline-block;
-      opacity: 0;
-      transform: translateX(-35px);
-      transition: opacity 300ms ease, transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-block; opacity: 0; transform: translateX(-35px); transition: opacity 300ms ease, transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .site-header.is-visible .nav-brand-text {
-      opacity: 1;
-      transform: translateX(0);
-    }
+    .site-header.is-visible .nav-brand-text { opacity: 1; transform: translateX(0); }
 
     .nav-links { display: none; gap: var(--space-6); color: var(--color-text-muted); font-size: var(--text-sm); font-weight: 500; }
     .nav-links a:hover { color: var(--color-primary); }
@@ -110,73 +104,27 @@
 
     /* ── MÁRKÁS ÓRIÁS TEXT ── */
     .giant-hero-text {
-      position: absolute;
-      top: -6.5rem;
-      left: 50%;
-      transform: translateX(-50%) scale(1);
-      font-family: var(--font-display);
-      font-size: clamp(5.5rem, 12vw, 10.5rem);
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -0.05em;
-      pointer-events: none;
-      white-space: nowrap;
-      z-index: 1;
-      background: linear-gradient(180deg, rgba(2, 132, 199, 0.16) 0%, rgba(2, 132, 199, 0.03) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      position: absolute; top: -6.5rem; left: 50%; transform: translateX(-50%) scale(1); font-family: var(--font-display); font-size: clamp(5.5rem, 12vw, 10.5rem);
+      font-weight: 700; line-height: 1; letter-spacing: -0.05em; pointer-events: none; white-space: nowrap; z-index: 1;
+      background: linear-gradient(180deg, rgba(2, 132, 199, 0.16) 0%, rgba(2, 132, 199, 0.03) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .giant-hero-text.fade-out {
-      opacity: 0;
-      transform: translateX(-50%) translateY(-40px) scale(0.95);
-    }
+    .giant-hero-text.fade-out { opacity: 0; transform: translateX(-50%) translateY(-40px) scale(0.95); }
 
     /* ── KLÍMA EGYSÉG VIZUÁL ── */
-    .ac-stage {
-      position: relative;
-      width: min(100%, 30rem);
-      margin-inline: auto;
-      padding-bottom: 8rem;
-      z-index: 5;
-    }
-
+    .ac-stage { position: relative; width: min(100%, 30rem); margin-inline: auto; padding-bottom: 8rem; z-index: 5; }
     .ac-shadow { position: absolute; left: 50%; top: 2rem; width: 17rem; height: 1.8rem; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle, rgba(2, 132, 199, 0.15), transparent 72%); filter: blur(10px); }
-
     .ac-unit {
-      position: relative;
-      width: min(100%, 28rem);
-      margin: 20px auto 0;
-      padding: 0.85rem 0.9rem 1rem;
-      border-radius: 1.4rem 1.4rem 1.15rem 1.15rem;
-      background: linear-gradient(180deg, #ffffff 0%, #f0f7fc 55%, #dbeafe 100%);
-      border: 1px solid rgba(2, 132, 199, 0.15);
-      box-shadow: 0 24px 55px rgba(16, 42, 67, 0.35);
+      position: relative; width: min(100%, 28rem); margin: 20px auto 0; padding: 0.85rem 0.9rem 1rem; border-radius: 1.4rem 1.4rem 1.15rem 1.15rem;
+      background: linear-gradient(180deg, #ffffff 0%, #f0f7fc 55%, #dbeafe 100%); border: 1px solid rgba(2, 132, 199, 0.15); box-shadow: 0 24px 55px rgba(16, 42, 67, 0.35);
     }
     
-    .ac-screen { 
-      margin-top: 1.6rem; 
-      min-height: 6.6rem; 
-      border-radius: 0.95rem; 
-      background: linear-gradient(180deg, #1e293b, #0f172a); 
-      position: relative; 
-      overflow: hidden; 
-    }
+    .ac-screen { margin-top: 1.6rem; min-height: 6.6rem; border-radius: 0.95rem; background: linear-gradient(180deg, #1e293b, #0f172a); position: relative; overflow: hidden; }
     .ac-screen::before { 
-      content: attr(data-temp)"°C"; 
-      position: absolute; 
-      top: 0.2rem; 
-      right: 1.2rem; 
-      color: #ef4444; 
-      font-size: 2.25rem; 
-      font-weight: 700; 
-      text-shadow: 0 0 10px rgba(239, 68, 68, 0.85);
-      transition: color 0.4s ease, text-shadow 0.4s ease;
+      content: attr(data-temp)"°C"; position: absolute; top: 0.2rem; right: 1.2rem; color: #ef4444; font-size: 2.25rem; font-weight: 700; 
+      text-shadow: 0 0 10px rgba(239, 68, 68, 0.85); transition: color 0.4s ease, text-shadow 0.4s ease;
     }
-    .ac-screen.cooling::before {
-      color: #38bdf8;
-      text-shadow: 0 0 10px rgba(56, 189, 248, 0.85);
-    }
+    .ac-screen.cooling::before { color: #38bdf8; text-shadow: 0 0 10px rgba(56, 189, 248, 0.85); }
 
     .screen-lines { position: absolute; left: 1.3rem; bottom: 1.2rem; display: grid; gap: 0.42rem; width: 22%; }
     .screen-lines span { display: block; height: 0.18rem; border-radius: var(--radius-full); background: #ef4444; opacity: 0.7; transition: background 0.4s ease; }
@@ -187,211 +135,56 @@
     .ac-vent { margin-top: 0.9rem; height: 0.95rem; border-radius: 0 0 1rem 1rem; background: linear-gradient(180deg, #cbd5e1, #f1f5f9); position: relative; overflow: visible; }
     .ac-flap { 
       position: absolute; left: 0.75rem; right: 0.75rem; top: 0.22rem; height: 0.42rem; border-radius: 0 0 999px 999px; 
-      background: linear-gradient(180deg, #ffffff, #cbd5e1); transform-origin: center top; 
-      transform: rotateX(12deg);
-      animation: flap-move 3.5s ease-in-out infinite;
+      background: linear-gradient(180deg, #ffffff, #cbd5e1); transform-origin: center top; transform: rotateX(12deg); animation: flap-move 3.5s ease-in-out infinite;
     }
 
-    /* ── KIZÁRÓLAG KÉK AIR FLOW ÉS RESET LOGIKA ── */
-    .airflow {
-      position: absolute;
-      top: calc(100% - 8.2rem);
-      left: 50%;
-      transform: translateX(-50%);
-      width: 92%;
-      height: 9rem;
-      overflow: visible;
-      pointer-events: none;
-    }
-    
-    /* Környezeti kék háttérfény hűtéshez */
+    /* ── AIR FLOW ANIMÁCIÓK ── */
+    .airflow { position: absolute; top: calc(100% - 8.2rem); left: 50%; transform: translateX(-50%); width: 140%; height: 9rem; overflow: visible; pointer-events: none; }
     .air-glow {
-      position: absolute;
-      top: -1.2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 85%;
-      height: 4.5rem;
-      border-radius: 50%;
-      background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.38) 0%, rgba(14, 165, 233, 0.1) 45%, transparent 70%);
-      filter: blur(4px);
-      opacity: 0;
-      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      position: absolute; top: -1.2rem; left: 50%; transform: translateX(-50%); width: 85%; height: 4.5rem; border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.38) 0%, rgba(14, 165, 233, 0.1) 45%, transparent 70%); filter: blur(4px); opacity: 0; transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    /* Csak akkor pulzál és látható, ha az .airflow megkapja az .active-flow osztályt (22 foknál) */
-    .airflow.active-flow .air-glow {
-      opacity: 1;
-      animation: glow-pulse 3s ease-in-out infinite;
-    }
-
-    /* Levegőáramlás hullámai - Kizárólag szép neonkék */
-    .air-wave {
-      position: absolute;
-      left: 50%; width: 80%; height: 2.2rem;
-      transform: translateX(-50%) scale(0.7); opacity: 0; border-radius: 999px;
-    }
-    .airflow.active-flow .air-wave {
-      animation: air-wave 3.2s ease-out infinite;
-    }
+    .airflow.active-flow .air-glow { opacity: 1; animation: glow-pulse 3s ease-in-out infinite; }
+    .air-wave { position: absolute; left: 50%; width: 80%; height: 2.2rem; transform: translateX(-50%) scale(0.7); opacity: 0; border-radius: 999px; }
+    .airflow.active-flow .air-wave { animation: air-wave 3.2s ease-out infinite; }
     .air-wave.w1 { top: 0rem; animation-delay: 0s; }
     .air-wave.w2 { top: 2.2rem; width: 68%; animation-delay: 1s; }
     .air-wave.w3 { top: 4.4rem; width: 54%; animation-delay: 2s; }
-
-    /* Levegőáramlás sávok - Kizárólag kék */
-    .air-stream {
-      position: absolute; left: 50%; width: 75%; height: 0.6rem; transform: translateX(-50%);
-      border-radius: var(--radius-full);
-      background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.8), transparent);
-      filter: blur(2px); opacity: 0;
-    }
-    .airflow.active-flow .air-stream {
-      animation: airflow-drift 3s ease-in-out infinite;
-    }
+    .air-stream { position: absolute; left: 50%; width: 75%; height: 0.6rem; transform: translateX(-50%); border-radius: var(--radius-full); background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.8), transparent); filter: blur(2px); opacity: 0; }
+    .airflow.active-flow .air-stream { animation: airflow-drift 3s ease-in-out infinite; }
     .air-stream.s1 { top: 0.8rem; animation-delay: 0s; }
     .air-stream.s2 { top: 3rem; width: 60%; animation-delay: 0.8s; }
     .air-stream.s3 { top: 5.2rem; width: 45%; animation-delay: 1.6s; }
-
-    /* Részecskék - Kizárólag kék */
-    .air-particle {
-      position: absolute; width: 0.38rem; height: 0.38rem; border-radius: 50%;
-      background: rgba(56, 189, 248, 0.75); opacity: 0;
-    }
-    .airflow.active-flow .air-particle {
-      animation: particle-drift 3.6s ease-in infinite;
-    }
+    .air-particle { position: absolute; width: 0.38rem; height: 0.38rem; border-radius: 50%; background: rgba(56, 189, 248, 0.75); opacity: 0; }
+    .airflow.active-flow .air-particle { animation: particle-drift 3.6s ease-in infinite; }
     .air-particle.p1 { left: 28%; top: 0.5rem; animation-delay: 0.2s; }
     .air-particle.p2 { left: 58%; top: 0.2rem; animation-delay: 1s; }
     .air-particle.p3 { left: 42%; top: 0.9rem; animation-delay: 1.8s; }
     .air-particle.p4 { left: 70%; top: 0.4rem; animation-delay: 2.5s; }
 
-    /* Animációs fázisok */
     @keyframes flap-move { 0%, 100% { transform: rotateX(8deg); } 50% { transform: rotateX(24deg); } }
-    @keyframes air-wave {
-      0%   { transform: translateX(-50%) scale(0.75);  opacity: 0; }
-      25%  { opacity: 0.6; }
-      100% { transform: translateX(-50%) scale(1.25);  opacity: 0; }
-    }
-    @keyframes airflow-drift {
-      0%   { transform: translateX(-50%) translateY(-0.2rem) scaleX(0.85); opacity: 0; }
-      20%  { opacity: 0.8; }
-      65%  { transform: translateX(-50%) translateY(2.2rem) scaleX(1.05); opacity: 0.5; }
-      100% { transform: translateX(-50%) translateY(4.8rem) scaleX(1.15); opacity: 0; }
-    }
-    @keyframes particle-drift {
-      0%   { transform: translateY(0) scale(1.1);    opacity: 0; }
-      20%  { opacity: 0.85; }
-      100% { transform: translateY(6.5rem) scale(0.4); opacity: 0; }
-    }
-    @keyframes glow-pulse {
-      0%, 100% { opacity: 0.85; transform: translateX(-50%) scale(0.98); }
-      50%       { opacity: 1;    transform: translateX(-50%) scale(1.04); }
-    }
+    @keyframes air-wave { 0% { transform: translateX(-50%) scale(0.75); opacity: 0; } 25% { opacity: 0.6; } 100% { transform: translateX(-50%) scale(1.25); opacity: 0; } }
+    @keyframes airflow-drift { 0% { transform: translateX(-50%) translateY(-0.2rem) scaleX(0.85); opacity: 0; } 20% { opacity: 0.8; } 65% { transform: translateX(-50%) translateY(2.2rem) scaleX(1.05); opacity: 0.5; } 100% { transform: translateX(-50%) translateY(4.8rem) scaleX(1.15); opacity: 0; } }
+    @keyframes particle-drift { 0% { transform: translateY(0) scale(1.1); opacity: 0; } 20% { opacity: 0.85; } 100% { transform: translateY(6.5rem) scale(0.4); opacity: 0; } }
+    @keyframes glow-pulse { 0%, 100% { opacity: 0.85; transform: translateX(-50%) scale(0.98); } 50% { opacity: 1; transform: translateX(-50%) scale(1.04); } }
 
     /* ── TÁVIRÁNYÍTÓ STÍLUSOK ── */
     .remote-control {
-      position: absolute;
-      bottom: 0rem;
-      left: -3rem;
-      width: 5.2rem;
-      height: 12.2rem;
-      background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
-      border: 1px solid #cbd5e1;
-      border-radius: 1.2rem;
-      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.5), inset 0 2px 4px #ffffff;
-      padding: 0.7rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      z-index: 30;
-      transform: rotate(8deg);
-      cursor: pointer;
-      user-select: none;
+      position: absolute; bottom: 0rem; left: -3rem; width: 5.2rem; height: 12.2rem; background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+      border: 1px solid #cbd5e1; border-radius: 1.2rem; box-shadow: 0 20px 45px rgba(15, 23, 42, 0.5), inset 0 2px 4px #ffffff;
+      padding: 0.7rem; display: flex; flex-direction: column; gap: 0.6rem; z-index: 30; transform: rotate(8deg); cursor: pointer; user-select: none;
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
     }
-    .remote-control:hover {
-      transform: rotate(3deg) translateY(-5px) scale(1.04);
-      box-shadow: 0 25px 55px rgba(15, 23, 42, 0.3), inset 0 2px 4px #ffffff;
-    }
-    .remote-control:active {
-      transform: rotate(3deg) translateY(-2px) scale(1.01);
-    }
-    
-    .remote-control::before {
-      content: "";
-      position: absolute;
-      top: -4px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0.6rem;
-      height: 4px;
-      background: #94a3b8;
-      border-radius: 999px 999px 0 0;
-      transition: background 0.2s ease, box-shadow 0.2s ease;
-    }
-    .remote-control.sending::before {
-      background: #38bdf8;
-      box-shadow: 0 0 15px 3px #38bdf8;
-    }
-    
-    .remote-screen {
-      height: 3rem;
-      background: #f8fafc;
-      border-radius: 0.5rem;
-      border: 1px solid #cbd5e1;
-      box-shadow: inset 0 2px 5px rgba(0,0,0,0.06);
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: monospace;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #334155;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-    .remote-control.cooling-mode .remote-screen {
-      background: #bae6fd;
-      color: #0369a1;
-    }
-    .remote-screen::after {
-      position: absolute;
-      top: 3px;
-      left: 5px;
-      font-size: 0.5rem;
-      color: #94a3b8;
-    }
-    
-    .remote-buttons {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.45rem;
-      flex-grow: 1;
-    }
-    .remote-btn {
-      background: #f1f5f9;
-      border: 1px solid #d1d5db;
-      border-radius: 0.4rem;
-      box-shadow: 0 2px 0 #cbd5e1, 0 2px 4px rgba(0,0,0,0.04);
-      font-size: 1rem;
-      font-weight: 700;
-      color: #64748b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      pointer-events: none;
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-    }
-    .remote-btn.power {
-      grid-column: span 2;
-      background: #0284c7;
-      color: white;
-      border-color: #0369a1;
-      box-shadow: 0 2px 0 #0f172a;
-    }
-    .remote-control.sending .remote-btn.power {
-      transform: translateY(2px);
-      box-shadow: none;
-    }
+    .remote-control:hover { transform: rotate(3deg) translateY(-5px) scale(1.04); box-shadow: 0 25px 55px rgba(15, 23, 42, 0.3), inset 0 2px 4px #ffffff; }
+    .remote-control:active { transform: rotate(3deg) translateY(-2px) scale(1.01); }
+    .remote-control::before { content: ""; position: absolute; top: -4px; left: 50%; transform: translateX(-50%); width: 0.6rem; height: 4px; background: #94a3b8; border-radius: 999px 999px 0 0; transition: background 0.2s ease, box-shadow 0.2s ease; }
+    .remote-control.sending::before { background: #38bdf8; box-shadow: 0 0 15px 3px #38bdf8; }
+    .remote-screen { height: 3rem; background: #f8fafc; border-radius: 0.5rem; border: 1px solid #cbd5e1; box-shadow: inset 0 2px 5px rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: center; font-family: monospace; font-size: 1.25rem; font-weight: 700; color: #334155; transition: background 0.3s ease, color 0.3s ease; }
+    .remote-control.cooling-mode .remote-screen { background: #bae6fd; color: #0369a1; }
+    .remote-buttons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.45rem; flex-grow: 1; }
+    .remote-btn { background: #f1f5f9; border: 1px solid #d1d5db; border-radius: 0.4rem; box-shadow: 0 2px 0 #cbd5e1, 0 2px 4px rgba(0,0,0,0.04); font-size: 1rem; font-weight: 700; color: #64748b; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+    .remote-btn.power { grid-column: span 2; background: #0284c7; color: white; border-color: #0369a1; box-shadow: 0 2px 0 #0f172a; }
+    .remote-control.sending .remote-btn.power { transform: translateY(2px); box-shadow: none; }
 
     /* ── STATISZTIKÁK ── */
     .hero-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); z-index: 10; }
@@ -400,39 +193,50 @@
     .hero-stat span { color: var(--color-text-muted); font-size: var(--text-xs); text-transform: uppercase; }
 
     /* ── SZOLGÁLTATÁSOK ── */
-    .services-grid { display: grid; gap: var(--space-4); width: 100%; }
+    .services-grid { display: grid; gap: var(--space-6); width: 100%; grid-template-columns: 1fr; }
     .service-card {
       background: var(--color-surface); border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
-      border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-elevated); display: grid; gap: var(--space-4); position: relative;
+      border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-elevated); display: flex; flex-direction: column; gap: var(--space-4); position: relative;
       transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 240ms cubic-bezier(0.16, 1, 0.3, 1);
     }
     .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-elevated-hover); }
     .service-top { display: flex; justify-content: space-between; gap: var(--space-4); align-items: start; }
     .service-icon { width: 3rem; height: 3rem; border-radius: 0.9rem; display: grid; place-items: center; background: var(--color-surface-2); color: var(--color-primary); border: 1px solid rgba(2, 132, 199, 0.1); }
-    .service-card h3, .form-card h2 { font-size: var(--text-lg); line-height: 1.15; color: #0f3456; }
-    .service-card p, .form-copy p { color: var(--color-text-muted); }
+    .service-card h3 { font-size: var(--text-lg); line-height: 1.15; color: #0f3456; }
+    .service-card p { color: var(--color-text-muted); }
+    .service-card .card-actions { margin-top: auto; padding-top: var(--space-2); }
     .service-list { display: grid; gap: var(--space-2); color: var(--color-text-muted); font-size: var(--text-sm); list-style: none; }
     .service-list li { display: flex; align-items: flex-start; gap: var(--space-2); }
     .service-list li::before { content: ""; width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--color-primary); flex: none; margin-top: .45rem; }
-    .select-btn { padding: 0.8rem 1rem; border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent); background: transparent; font-weight: 700; color: var(--color-primary); }
+    .select-btn { padding: 0.5rem 1.1rem; min-height: 38px; font-size: var(--text-sm); border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent); background: transparent; font-weight: 700; color: var(--color-primary); }
     .select-btn.is-selected { background: var(--color-primary); color: var(--color-text-inverse); border-color: transparent; }
     .service-price { display: grid; gap: var(--space-1); }
     .service-price strong { font-size: clamp(2rem, 1.4rem + 1.2vw, 2.5rem); line-height: 1; font-family: var(--font-display); color: #0c1e2f; }
     .service-price span, .service-note, .service-subnote { color: var(--color-text-muted); }
     .service-note { padding-top: var(--space-4); border-top: 1px solid var(--color-divider); font-size: var(--text-sm); }
     .service-subnote { font-size: var(--text-sm); }
-    .service-card.service-dark { background: #0f172a; border-color: #1e293b; color: #f8fafc; box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.15), 0 4px 12px -3px rgba(15, 23, 42, 0.1); }
-    .service-card.service-dark:hover { box-shadow: 0 20px 40px -5px rgba(15, 23, 42, 0.3), 0 8px 24px -4px rgba(15, 23, 42, 0.2); }
-    .service-card.service-dark h3, .service-card.service-dark .service-price strong { color: #ffffff; }
-    .service-card.service-dark p, .service-card.service-dark .service-list, .service-card.service-dark .service-note, .service-card.service-dark .service-subnote, .service-card.service-dark .service-price span { color: #94a3b8; }
-    .service-card.service-dark .service-icon { background: rgba(56, 189, 248, 0.1); color: #38bdf8; border-color: rgba(56, 189, 248, 0.2); }
-    .service-card.service-dark .select-btn { background: #38bdf8; color: #0f172a; border-color: transparent; }
-    .service-card.service-dark .select-btn.is-selected { background: #0284c7; color: white; }
+    .service-featured { background: linear-gradient(180deg, var(--color-surface) 0%, #f0f9ff 100%); border-color: color-mix(in srgb, var(--color-primary) 30%, transparent); box-shadow: 0 15px 35px rgba(2, 132, 199, 0.08); }
+    .services-stacked-column { display: flex; flex-direction: column; gap: var(--space-6); }
+    .services-stacked-column .service-card { flex: 1; }
 
-    /* ── ŰRLAP ── */
-    .register-wrap { display: block; width: min(calc(100% - 2rem), 46rem); margin-inline: auto; }
-    .form-card { background: var(--color-surface); border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent); border-radius: var(--radius-xl); box-shadow: var(--shadow-elevated); padding: clamp(var(--space-6), 4vw, var(--space-10)); display: grid; gap: var(--space-6); }
-    .selected-service-pill { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 0.7rem 1rem; border-radius: var(--radius-full); background: var(--color-primary-highlight); color: var(--color-primary-hover); font-weight: 700; }
+    /* ── ÁTDOLGOZOTT KAPCSOLAT / ŰRLAP SZEKCIÓ ── */
+    .contact-grid {
+      display: grid;
+      gap: var(--space-8);
+      grid-template-columns: 1fr;
+      margin-top: var(--space-6);
+      align-items: start;
+    }
+    .form-card { 
+      background: var(--color-surface); 
+      border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent); 
+      border-radius: var(--radius-xl); 
+      box-shadow: var(--shadow-elevated); 
+      padding: clamp(var(--space-6), 4vw, var(--space-8)); 
+      display: grid; 
+      gap: var(--space-4); 
+    }
+    .selected-service-pill { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 0.7rem 1rem; border-radius: var(--radius-full); background: var(--color-primary-highlight); color: var(--color-primary-hover); font-weight: 700; font-size: var(--text-sm); }
     form, .form-grid, .field { display: grid; gap: var(--space-4); }
     .field label { font-size: var(--text-sm); font-weight: 700; color: #0f3456; }
     .field input, .field select, .field textarea { width: 100%; min-height: 3.2rem; padding: 0.85rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-bg); color: var(--color-text); transition: border-color 180ms, box-shadow 180ms; }
@@ -442,16 +246,62 @@
     .checkbox-row input { width: 1.1rem; height: 1.1rem; margin-top: 0.2rem; accent-color: var(--color-primary); }
     .status-note { color: var(--color-success); font-weight: 700; font-size: var(--text-sm); min-height: 1.5rem; }
 
+    /* Közvetlen kapcsolat kártya (jobb oldal) */
+    .direct-contact-card {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      border-radius: var(--radius-xl);
+      padding: clamp(var(--space-6), 5vw, var(--space-10));
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      gap: var(--space-8);
+      position: relative;
+      overflow: hidden;
+    }
+    .direct-contact-card::before {
+      content: ""; position: absolute; top: -20%; right: -20%; width: 15rem; height: 15rem; border-radius: 50%;
+      background: radial-gradient(circle, rgba(2, 132, 199, 0.15) 0%, transparent 70%); pointer-events: none;
+    }
+    .direct-head h3 { font-family: var(--font-display); font-size: var(--text-lg); color: #38bdf8; text-transform: uppercase; letter-spacing: 0.05em; }
+    .direct-head p { color: #94a3b8; font-size: var(--text-sm); margin-top: var(--space-1); }
+    
+    .info-block { display: grid; gap: var(--space-6); }
+    .info-item { display: grid; gap: var(--space-1); }
+    .info-item span { font-size: var(--text-xs); text-transform: uppercase; color: #64748b; font-weight: 700; letter-spacing: 0.05em; }
+    .info-item a { 
+      font-family: var(--font-display); 
+      font-size: clamp(1.35rem, 1.2rem + 1.2vw, 2.2rem); 
+      line-height: 1.1; 
+      color: #ffffff; 
+      transition: color 150ms ease; 
+      word-break: break-all;
+    }
+    .info-item a:hover { color: #38bdf8; }
+    
+    .location-badge {
+      display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-4);
+      background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md);
+      color: #cbd5e1; font-size: var(--text-sm); margin-top: var(--space-2);
+    }
+    .location-badge svg { color: #38bdf8; flex-shrink: 0; }
+
     /* ── LÁBLÉC ── */
     .site-footer { padding-block: var(--space-8); border-top: 1px solid var(--color-divider); color: var(--color-text-muted); background: #eaf2f6; }
     .footer-inner { display: flex; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; font-size: var(--text-sm); }
 
-    @media (min-width: 48rem) {
+    @media (min-width: 64rem) {
       .nav-links { display: flex; }
       .hero-grid { grid-template-columns: 1.02fr 0.98fr; }
-      .services-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .services-grid { grid-template-columns: 1.4fr 1fr 1fr; align-items: stretch; }
+      /* Kétoszlopos elrendezés a kapcsolat szekciónak */
+      .contact-grid { grid-template-columns: 1.1fr 0.9fr; gap: var(--space-10); }
       .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .field[data-span="2"] { grid-column: span 2; }
+    }
+    @media (min-width: 48rem) and (max-width: 63.98rem) {
+      .nav-links { display: flex; }
+      .services-grid { grid-template-columns: 1.2fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -471,9 +321,9 @@
       </a>
       <nav class="nav-links" aria-label="Elsődleges navigáció">
         <a href="#services">Szolgáltatások</a>
-        <a href="#register">Időpont foglalása</a>
+        <a href="#register">Kapcsolat</a>
       </nav>
-      <div class="header-actions"><a class="btn btn-primary" href="#register">Időpont foglalás</a></div>
+      <div class="header-actions"><a class="btn btn-primary" href="#register">Kapcsolatfelvétel</a></div>
     </div>
   </header>
 
@@ -485,7 +335,7 @@
             <h1>Tiszta szerelés, gyors hűtés, biztos klíma otthonra.</h1>
             <p>Az sKlíma <strong>Maglód körzetében</strong> vállal lakossági klíma telepítést, karbantartást és tisztítást.</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#register">Időpont foglalása</a>
+              <a class="btn btn-primary" href="#register">Kapcsolatfelvétel</a>
               <a class="btn btn-secondary" href="#services">Szolgáltatások megtekintése</a>
             </div>
           </div>
@@ -547,69 +397,103 @@
           <p>30 km-es távolságban.</p>
         </div>
         <div class="services-grid">
-          <article class="service-card" data-service-card>
+          <article class="service-card service-featured" data-service-card>
             <div class="service-top"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10a8 8 0 1 1 16 0v7H4v-7Z"/><path d="M8 17v2a4 4 0 0 0 8 0v-2"/></svg></div></div>
             <div><h3>Klíma Telepítés</h3></div>
             <div class="service-price"><strong>100.000 Ft <span>-tól</span></strong><span>129.000 Ft-ig</span></div>
             <ul class="service-list"><li>Tartalmazza: 3m hosszúságú cső</li><li>Tartalmazza: 1 db fal áttörés</li><li>Külső és belső egység beszerzése</li></ul>
             <div class="service-note">További fal áttörés: 9.990 - 19.990 Ft</div>
             <div class="service-subnote">A fal vastagsága és anyag függvényében</div>
-            <div class="card-actions"><button class="select-btn is-selected" type="button" data-service="Klíma Telepítés">Ajánlatot kérek</button></div>
+            <div class="card-actions"><button class="select-btn is-selected" type="button" data-service="Klíma Telepítés">Kiválasztva</button></div>
           </article>
+          
           <article class="service-card" data-service-card>
             <div class="service-top"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16"/><path d="M6 7v10a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V7"/><path d="M9 11h6"/></svg></div></div>
             <div><h3>Klíma Tisztítás</h3><p>Éves tisztítás és ellenőrzés</p></div>
             <div class="service-price"><strong>19.990 Ft <span>-tól</span></strong><span>29.990 Ft-ig</span></div>
             <ul class="service-list"><li>Szűrők tisztítása, fertőtlenítése</li><li>Gáznyomás ellenőrzése</li><li>Cseppvíz elvezetés ellenőrzése</li></ul>
-            <div class="card-actions"><button class="select-btn" type="button" data-service="Klíma Karbantartás">Időpontot foglalok</button></div>
+            <div class="card-actions"><button class="select-btn" type="button" data-service="Klíma Karbantartás">Kiválasztom</button></div>
           </article>
-          <article class="service-card" data-service-card>
-            <div class="service-top"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4v9"/><path d="M12 4v16"/><path d="M18 4v9"/><path d="M9 10l-3 3-3-3"/><path d="M21 10l-3 3-3-3"/></svg></div></div>
-            <div><h3>Klíma Leszerelése</h3></div>
-            <div class="service-price"><strong>19.990 Ft <span>-tól</span></strong><span>39.990 Ft-ig</span></div>
-            <ul class="service-list"><li>Hűtőközeg szakszerű visszajuttatása</li><li>Kültéri és beltéri egység bontása</li></ul>
-            <div class="card-actions"><button class="select-btn" type="button" data-service="Klíma Leszerelése">Ajánlatot kérek</button></div>
-          </article>
-          <article class="service-card" data-service-card>
-            <div class="service-top"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 3 4 14h7l-1 7 10-12h-7l0-6Z"/></svg></div></div>
-            <div><h3>Klíma Hibajavítás</h3><p>Hiba elhárítása</p></div>
-            <div class="service-price"><strong>Egyedi</strong><span>árajánlat alapján</span></div>
-            <div class="service-subnote">Egyedi árajánlat, a hiba és az alkatrész cseréjének függvényében.</div>
-            <div class="card-actions"><button class="select-btn" type="button" data-service="Klíma Hibajavítás">Szerelőt hívok</button></div>
-          </article>
+          
+          <div class="services-stacked-column">
+            <article class="service-card" data-service-card>
+              <div class="service-top"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4v9"/><path d="M12 4v16"/><path d="M18 4v9"/><path d="M9 10l-3 3-3-3"/><path d="M21 10l-3 3-3-3"/></svg></div></div>
+              <div><h3>Klíma Leszerelése</h3></div>
+              <div class="service-price"><strong>19.990 Ft <span>-tól</span></strong><span>39.990 Ft-ig</span></div>
+              <div class="card-actions"><button class="select-btn" type="button" data-service="Klíma Leszerelése">Kiválasztom</button></div>
+            </article>
+            
+            <article class="service-card" data-service-card>
+              <div class="service-top"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 3 4 14h7l-1 7 10-12h-7l0-6Z"/></svg></div></div>
+              <div><h3>Klíma Hibajavítás</h3><p>Hiba elhárítása</p></div>
+              <div class="service-price"><strong>Egyedi</strong><span>árajánlat alapján</span></div>
+              <div class="card-actions"><button class="select-btn" type="button" data-service="Klíma Hibajavítás">Kiválasztom</button></div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section" id="register">
-      <div class="register-wrap">
-        <h2>Foglaljon időpontot</h2>
-        <p>vagy keressen fel közvetlenül emailen vagy telefonon.</p>
+      <div class="container-wide">
+        <div class="section-head">
+          <h2>Kapcsolatfelvétel</h2>
+          <p>Foglaljon időpontot, vagy vegye fel közvetlenül a kapcsolatot.</p>
+        </div>
 
-        <div class="form-card">
-          <div class="form-copy"><span class="eyebrow">Időpont foglalása</span></div>
-          <div class="selected-service-pill" id="selectedServiceDisplay" aria-live="polite">Kiválasztott szolgáltatás: Klíma Telepítés</div>
-          <form id="serviceForm">
-            <div class="form-grid">
-              <div class="field"><label for="fullName">Teljes név</label><input id="fullName" name="fullName" type="text" placeholder="Példa István" required /></div>
-              <div class="field"><label for="phone">Telefonszám</label><input id="phone" name="phone" type="tel" placeholder="+36 30 123 4567" required /></div>
-              <div class="field"><label for="email">E-mail cím</label><input id="email" name="email" type="email" placeholder="pelda@domain.hu" required /></div>
-              <div class="field">
-                <label for="serviceSelect">Kiválasztott szolgáltatás</label>
-                <select id="serviceSelect" name="service" required>
-                  <option>Klíma Telepítés</option><option>Klíma Karbantartás</option><option>Klíma Leszerelése</option><option>Klíma Hibajavítás</option>
-                </select>
+        <div class="contact-grid">
+          <div class="form-card">
+            <div class="selected-service-pill" id="selectedServiceDisplay" aria-live="polite">Kiválasztott szolgáltatás: Klíma Telepítés</div>
+            <form id="serviceForm">
+              <div class="form-grid">
+                <div class="field"><label for="fullName">Teljes név</label><input id="fullName" name="fullName" type="text" placeholder="Példa István" required /></div>
+                <div class="field"><label for="phone">Telefonszám</label><input id="phone" name="phone" type="tel" placeholder="+36 30 123 4567" required /></div>
+                <div class="field"><label for="email">E-mail cím</label><input id="email" name="email" type="email" placeholder="pelda@domain.hu" required /></div>
+                <div class="field">
+                  <label for="serviceSelect">Kiválasztott szolgáltatás</label>
+                  <select id="serviceSelect" name="service" required>
+                    <option>Klíma Telepítés</option><option>Klíma Karbantartás</option><option>Klíma Leszerelése</option><option>Klíma Hibajavítás</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="propertyType">Ingatlan típusa</label>
+                  <select id="propertyType" name="propertyType"><option>Lakás</option><option>Családi ház</option><option>Iroda</option><option>Üzlethelyiség</option></select>
+                </div>
+                <div class="field"><label for="preferredDate">Kívánt dátum</label><input id="preferredDate" name="preferredDate" type="date" /></div>
+                <div class="field" data-span="2"><label for="notes">Megjegyzés</label><textarea id="notes" name="notes" placeholder="Írd le a részleteket..."></textarea></div>
               </div>
-              <div class="field">
-                <label for="propertyType">Ingatlan típusa</label>
-                <select id="propertyType" name="propertyType"><option>Lakás</option><option>Családi ház</option><option>Iroda</option><option>Üzlethelyiség</option></select>
+              <label class="checkbox-row" for="consent"><input id="consent" name="consent" type="checkbox" required /><span>Elfogadom a feltételeket.</span></label>
+              <div class="card-actions">
+                <button class="btn btn-primary" type="submit">Szolgáltatás regisztrálása</button>
+                <span class="status-note" id="formStatus" aria-live="polite"></span>
               </div>
-              <div class="field"><label for="preferredDate">Kívánt dátum</label><input id="preferredDate" name="preferredDate" type="date" /></div>
-              <div class="field" data-span="2"><label for="notes">Megjegyzés</label><textarea id="notes" name="notes" placeholder="Írd le a részteleket..."></textarea></div>
+            </form>
+          </div>
+
+          <div class="direct-contact-card">
+            <div class="direct-head">
+              <h3>Közvetlen elérhetőség</h3>
+              <p>Keressen bizalommal telefonon vagy e-mailben a gyors egyeztetés érdekében!</p>
             </div>
-            <label class="checkbox-row" for="consent"><input id="consent" name="consent" type="checkbox" required /><span>Elfogadom a feltételeket.</span></label>
-            <div class="card-actions"><button class="btn btn-primary" type="submit">Szolgáltatás regisztrálása</button><span class="status-note" id="formStatus" aria-live="polite"></span></div>
-          </form>
+            
+            <div class="info-block">
+              <div class="info-item">
+                <span>Telefon</span>
+                <a href="tel:+36301234567">+36 30 123 4567</a>
+              </div>
+              <div class="info-item">
+                <span>E-mail cím</span>
+                <a href="mailto:info@sklima.hu">info@sklima.hu</a>
+              </div>
+            </div>
+
+            <div class="location-container">
+              <div class="location-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Elsődleges szolgáltatási terület: Maglód és 30 km-es körzete</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -626,8 +510,7 @@
             giantText = document.getElementById('giantText'),
             serviceSelect = document.getElementById('serviceSelect'), display = document.getElementById('selectedServiceDisplay'),
             form = document.getElementById('serviceForm'), status = document.getElementById('formStatus');
-      const serviceButtons = document.querySelectorAll('[data-service]'),
-            labels = { 'Klíma Karbantartás': 'Időpontot foglalok', 'Klíma Hibajavítás': 'Szerelőt hívok' };
+      const serviceButtons = document.querySelectorAll('[data-service]');
 
       const acScreen = document.getElementById('acScreen');
       const remote = document.getElementById('remote');
@@ -639,7 +522,6 @@
       let isCounting = false;
       let countingInterval = null;
 
-      // Segédfunkció az AirFlow állapot frissítésére a pontos hőmérséklet alapján
       function checkAirFlowVisibility(temp) {
         if (temp === 22) {
           airFlowContainer.classList.add('active-flow');
@@ -648,7 +530,6 @@
         }
       }
 
-      // Hőfokváltás oda-vissza kezelése
       function toggleACState() {
         if (isCounting) return; 
         
@@ -664,13 +545,10 @@
           if (targetTemp === 22) {
             remote.classList.add('cooling-mode');
             acScreen.classList.add('cooling');
-            // airFlowContainer.classList.add('active-flow');
             checkAirFlowVisibility(targetTemp);
-
           } else {
             remote.classList.remove('cooling-mode');
             acScreen.classList.remove('cooling');
-            // Azonnal lőjük le az áramlást, ha elindulunk felfelé 30 fokra
             checkAirFlowVisibility(targetTemp);
           }
 
@@ -685,7 +563,6 @@
             acScreen.setAttribute('data-temp', currentTemp);
             remoteScreen.textContent = currentTemp + '°C';
             
-            // Folyamatosan ellenőrzi, hogy elértük-e a stabil 22 fokot
             checkAirFlowVisibility(targetTemp);
 
             if (currentTemp === targetTemp) {
@@ -698,11 +575,8 @@
       }
 
       remote.addEventListener('click', toggleACState);
-
-      // Kezdeti állapot beállítása (leállított áramlás 30 fokon)
       checkAirFlowVisibility(null);
 
-      // Automatikus első hűtésindítás 1.8 másodperc után
       setTimeout(() => {
         if (currentTemp === 30 && targetTemp === 22 && !acScreen.classList.contains('cooling')) {
           isCounting = true;
@@ -745,7 +619,7 @@
         serviceButtons.forEach(btn => {
           const sel = btn.dataset.service === service;
           btn.classList.toggle('is-selected', sel);
-          btn.textContent = sel ? 'Kiválasztva' : (labels[btn.dataset.service] || 'Ajánlatot kérek');
+          btn.textContent = sel ? 'Kiválasztva' : 'Kiválasztom';
         });
       }
 

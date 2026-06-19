@@ -205,7 +205,6 @@
 
     .services-grid { display: grid; gap: var(--space-6); width: 100%; grid-template-columns: 1fr; }
     
-    /* CARD KOMPONENSEK KIEMELT ÁRNYÉKA */
     .service-card, .form-card, .direct-contact-card {
       box-shadow: var(--shadow-elevated) !important;
     }
@@ -255,8 +254,11 @@
       display: grid; 
       gap: var(--space-4); 
     }
-    .selected-service-pill { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 0.7rem 1.2rem; border-radius: var(--radius-full); background: var(--color-primary-highlight); color: var(--color-primary-hover); font-weight: 700; font-size: var(--text-sm); border: 1px solid color-mix(in srgb, var(--color-primary) 15%, transparent); }
+    
     form, .form-grid, .field { display: grid; gap: var(--space-4); }
+    
+    /* Kisebb távolság a label felirat és a beviteli mezők között */
+    .field { gap: var(--space-1) !important; }
     .field label { font-size: var(--text-sm); font-weight: 700; color: #0f3456; }
     .field input, .field select, .field textarea { width: 100%; min-height: 3.4rem; padding: 0.85rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: #f8fbfd; color: var(--color-text); transition: border-color 180ms, box-shadow 180ms; }
     .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15); background: var(--color-surface); }
@@ -264,6 +266,9 @@
     .checkbox-row { display: flex; align-items: start; gap: var(--space-3); color: var(--color-text-muted); font-size: var(--text-sm); cursor: pointer; }
     .checkbox-row input { width: 1.2rem; height: 1.2rem; margin-top: 0.15rem; accent-color: var(--color-primary); }
     .status-note { color: var(--color-success); font-weight: 700; font-size: var(--text-sm); min-height: 1.5rem; }
+
+    /* Időpont foglalás küldése gomb 100% szélességűvé tétele */
+    #serviceForm .btn-primary { width: 100%; }
 
     .direct-contact-card {
       background: linear-gradient(135deg, #0b1a29 0%, #162c42 100%);
@@ -285,7 +290,8 @@
     .info-item { display: grid; gap: var(--space-1); }
     .info-item span { font-size: var(--text-xs); text-transform: uppercase; color: #68829e; font-weight: 700; letter-spacing: 0.05em; }
     
-    .contact-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+    /* A gomb és a szöveg egymás alá rendezése */
+    .contact-row { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2); width: 100%; }
     .info-item .clickable-text { 
       font-family: var(--font-display); 
       font-size: clamp(1.35rem, 1.2rem + 1.2vw, 2.2rem); 
@@ -297,7 +303,10 @@
     }
     .info-item .clickable-text:hover { color: var(--color-accent); }
     
-    .copy-btn {
+    /* Másolás gombok igazítása a szöveg alá */
+    .contact-row .copy-btn {
+      align-self: flex-start;
+      margin-top: var(--space-1);
       display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.75rem; font-size: 0.75rem; font-weight: 700;
       color: #ffffff; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-sm);
       text-transform: uppercase; letter-spacing: 0.02em; transition: all 150ms ease;
@@ -305,6 +314,18 @@
     .copy-btn:hover { background: rgba(255, 255, 255, 0.18); border-color: rgba(255, 255, 255, 0.3); transform: translateY(-1px); }
     .copy-btn:active { transform: translateY(0); }
     .copy-btn.copied { background: var(--color-success) !important; border-color: transparent !important; }
+
+    .social-links-grid { display: flex; gap: var(--space-4); margin-top: var(--space-2); }
+    .social-link-btn {
+      display: inline-flex; align-items: center; gap: var(--space-3); padding: 0.75rem var(--space-5);
+      background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-md);
+      color: #cbd5e1; font-weight: 500; font-size: var(--text-sm); transition: all 200ms ease; width: 100%; justify-content: center;
+    }
+    .social-link-btn svg { fill: currentColor; flex-shrink: 0; transition: transform 200ms ease; }
+    .social-link-btn:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.25); color: #ffffff; transform: translateY(-2px); }
+    .social-link-btn.fb-hover:hover { border-color: #1877f2; color: #1877f2; }
+    .social-link-btn.wa-hover:hover { border-color: #25d366; color: #25d366; }
+    .social-link-btn:hover svg { transform: scale(1.1); }
     
     .location-badge {
       display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-4);
@@ -312,9 +333,6 @@
       color: #cbd5e1; font-size: var(--text-sm); margin-top: var(--space-2);
     }
     .location-badge svg { color: var(--color-accent); flex-shrink: 0; }
-
-    .site-footer { padding-block: var(--space-8); border-top: 1px solid var(--color-divider); color: var(--color-text-muted); background: #e3edf5; }
-    .footer-inner { display: flex; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; font-size: var(--text-sm); }
 
     @media (min-width: 64rem) {
       .nav-links { display: flex; }
@@ -496,23 +514,23 @@
       <div class="container-wide">
         <div class="section-head">
           <h2>Kapcsolatfelvétel</h2>
-          <p>Foglaljon időpontot, vagy vegye fel közvetlenül a kapcsolatot.</p>
+          <p id="selectedServiceDisplay" aria-live="polite">Kiválasztott szolgáltatás: Klíma Telepítés</p>
         </div>
 
         <div class="contact-grid">
           <div class="form-card">
-            <div class="selected-service-pill" id="selectedServiceDisplay" aria-live="polite">Kiválasztott szolgáltatás: Klíma Telepítés</div>
             <form id="serviceForm">
               <div class="form-grid">
-                <div class="field"><label for="fullName">Teljes név</label><input id="fullName" name="fullName" type="text" placeholder="Példa István" required /></div>
-                <div class="field"><label for="phone">Telefonszám</label><input id="phone" name="phone" type="tel" placeholder="+36 30 123 4567" required /></div>
-                <div class="field"><label for="email">E-mail cím</label><input id="email" name="email" type="email" placeholder="pelda@domain.hu" required /></div>
                 <div class="field">
                   <label for="serviceSelect">Kiválasztott szolgáltatás</label>
                   <select id="serviceSelect" name="service" required>
                     <option>Klíma Telepítés</option><option>Klíma Karbantartás</option><option>Klíma Leszerelése</option><option>Klíma Hibajavítás</option>
                   </select>
                 </div>
+                <div class="field"><label for="fullName">Teljes név</label><input id="fullName" name="fullName" type="text" placeholder="Példa István" required /></div>
+                <div class="field"><label for="phone">Telefonszám</label><input id="phone" name="phone" type="tel" placeholder="+36 30 123 4567" required /></div>
+                <div class="field"><label for="email">E-mail cím</label><input id="email" name="email" type="email" placeholder="pelda@domain.hu" required /></div>
+                
                 <div class="field">
                   <label for="propertyType">Ingatlan típusa</label>
                   <select id="propertyType" name="propertyType"><option>Lakás</option><option>Családi ház</option><option>Iroda</option><option>Üzlethelyiség</option></select>
@@ -555,6 +573,25 @@
                   </button>
                 </div>
               </div>
+
+              <div class="info-item">
+                <span>Közösségi média</span>
+                <div class="social-links-grid">
+                  <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" class="social-link-btn fb-hover" aria-label="Facebook oldal megnyitása">
+                    <svg width="18" height="18" viewBox="0 0 24 24">
+                      <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                    </svg>
+                    <span>Facebook</span>
+                  </a>
+                  <a href="https://wa.me/36301234567" target="_blank" rel="noopener noreferrer" class="social-link-btn wa-hover" aria-label="Kapcsolatfelvétel WhatsApp-on">
+                    <svg width="18" height="18" viewBox="0 0 24 24">
+                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.456L0 24zm6.59-4.846c1.66.986 3.288 1.447 5.41 1.448 5.4 0 9.794-4.394 9.797-9.793.002-2.612-1.011-5.067-2.854-6.911S14.618 1.18 12.01 1.18c-5.4 0-9.793 4.393-9.797 9.792-.001 2.154.569 4.26 1.648 6.096L2.837 21.19l4.21-1.103zM17.11 14.36c-.28-.14-1.65-.814-1.906-.907-.256-.093-.442-.14-.628.14-.186.28-.72.907-.883 1.093-.163.186-.326.21-.605.07-.28-.14-1.18-.435-2.25-1.388-.83-.74-1.39-1.653-1.553-1.933-.163-.28-.017-.43.123-.57.127-.127.28-.326.42-.49.14-.163.186-.28.28-.465.093-.186.046-.35-.023-.49-.07-.14-.628-1.512-.86-2.07-.226-.544-.455-.47-.628-.478-.163-.008-.35-.01-.535-.01-.186 0-.488.07-.744.35-.256.28-.977.954-.977 2.325s1.002 2.698 1.14 2.884c.14.186 1.972 3.01 4.777 4.218.667.288 1.188.46 1.594.59.67.213 1.28.183 1.762.11.537-.08 1.65-.674 1.882-1.326.233-.652.233-1.21.163-1.326-.07-.11-.256-.186-.536-.326z"/>
+                    </svg>
+                    <span>WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+
             </div>
 
             <div class="location-container">
@@ -685,7 +722,12 @@
 
       function updateService(service) {
         serviceSelect.value = service;
-        display.textContent = 'Kiválasztott szolgáltatás: ' + service;
+        
+        // Ellenőrizzük, hogy létezik-e az elem, mielőtt módosítanánk a szövegét
+        if (display) {
+          display.textContent = 'Kiválasztott szolgáltatás: ' + service;
+        }
+        
         serviceButtons.forEach(btn => {
           const sel = btn.dataset.service === service;
           btn.classList.toggle('is-selected', sel);
@@ -749,7 +791,7 @@
         });
       });
 
-      /* Másolás közvetlenül a szövegre (pl. e-mail cím) való kattintáskor */
+      /* Másolás közvetlenül a szövegre való kattintáskor */
       document.querySelectorAll('.clickable-text.data-to-copy').forEach(textEl => {
         textEl.addEventListener('click', function() {
           const targetBtnId = this.getAttribute('data-copy-target');

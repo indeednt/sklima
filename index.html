@@ -104,14 +104,6 @@
     .header-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-height: 5.2rem; }
     .brand { display: inline-flex; align-items: center; gap: var(--space-3); font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.4rem); font-weight: 800; color: #0f3456; overflow: hidden; }
     
-    .logo-wrap {
-      width: 3rem; height: 3rem; padding: 0.45rem; border-radius: var(--radius-md); background: linear-gradient(135deg, #e0f2fe, #bae6fd);
-      border: 1px solid rgba(2, 132, 199, 0.15); color: var(--color-primary); box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1); display: flex; align-items: center; justify-content: center; z-index: 2;
-    }
-    .airflow-logo path { fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-    .airflow-logo .stream-top { stroke-dasharray: 30; }
-    .airflow-logo .stream-mid { stroke-dasharray: 35; stroke-width: 3.5; color: var(--color-primary-hover); }
-    .airflow-logo .stream-bot { stroke-dasharray: 25; }
 
     .nav-brand-text {
       display: inline-block; opacity: 0; transform: translateX(-35px); transition: opacity 300ms ease, transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -119,8 +111,6 @@
     }
     .site-header.is-visible .nav-brand-text { opacity: 1; transform: translateX(0); }
 
-    .nav-links { display: none; gap: var(--space-6); color: var(--color-text-muted); font-size: var(--text-sm); font-weight: 500; }
-    .nav-links a:hover { color: var(--color-primary); }
 
     .btn, .select-btn {
       min-height: 50px; display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); border-radius: var(--radius-full);
@@ -138,10 +128,7 @@
     .hero-copy { display: grid; gap: var(--space-5); max-width: 40rem; z-index: 10; align-self: center; }
     .hero-visual { display: grid; gap: var(--space-5); position: relative; padding-top: 5rem; padding-bottom: clamp(2rem, 4vw, 4rem); }
     .hero-copy h1 { font-family: var(--font-display); font-size: var(--text-hero); line-height: 0.96; letter-spacing: -0.05em; color: #0c1e2f; }
-    .hero-copy p { color: var(--color-text-muted); max-width: 34rem; }
-    .hero-copy strong { color: var(--color-primary); }
-    .hero-actions, .hero-meta, .card-actions { display: flex; flex-wrap: wrap; gap: var(--space-4); }
-    .hero-meta span { display: inline-flex; align-items: center; gap: var(--space-2); padding: 0.7rem 0.95rem; border-radius: var(--radius-full); background: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-text-muted); font-size: var(--text-sm); }
+    .hero-actions, .card-actions { display: flex; flex-wrap: wrap; gap: var(--space-4); }
 
     .giant-hero-text {
       position: absolute; left: 50%; transform: translateX(-50%) translateY(50%) scale(1); font-family: var(--font-display); font-size: clamp(5.5rem, 12vw, 10.5rem);
@@ -270,7 +257,6 @@
     .service-card h3 { font-size: clamp(1.3rem, 1.1rem + 0.9vw, 1.8rem); line-height: 1.1; color: #0f3456; }
     .service-card p { color: var(--color-text-muted); }
     .service-card .card-actions { margin-top: auto; padding-top: var(--space-4); }
-    .service-grid input:disabled, .service-grid select:disabled, .service-grid textarea:disabled { opacity: 0.6; cursor: not-allowed; }
     .service-list { display: grid; gap: var(--space-2); color: var(--color-text-muted); font-size: var(--text-sm); list-style: none; }
     .service-list li { display: flex; align-items: flex-start; gap: var(--space-2); }
     .service-list li::before { content: ""; width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--color-accent); flex: none; margin-top: .45rem; }
@@ -280,7 +266,7 @@
     
     .service-price { display: grid; gap: var(--space-1); }
     .service-price strong { font-size: clamp(2rem, 1.4rem + 1.2vw, 2.5rem); line-height: 1; font-family: var(--font-display); color: #0c1e2f; }
-    .service-price span, .service-note, .service-subnote { font-size: clamp(1.5rem, 1.4rem + 1.2vw, 1.6rem); line-height: 1; font-family: var(--font-display); color: #0c1e2f;color: var(--color-text-muted); }
+    .service-price span, .service-note, .service-subnote { font-size: clamp(1.5rem, 1.4rem + 1.2vw, 1.6rem); line-height: 1; font-family: var(--font-display); color: var(--color-text-muted); }
     .service-note { padding-top: var(--space-4); border-top: 1px solid var(--color-divider); font-size: var(--text-sm); }
     .service-subnote { font-size: var(--text-sm); }
     
@@ -418,7 +404,6 @@
     .location-badge svg { color: var(--color-accent); flex-shrink: 0; }
 
     @media (min-width: 64rem) {
-      .nav-links { display: flex; }
       .hero-grid {
         grid-template-columns: 1.02fr 0.98fr;
         grid-template-rows: 1fr auto;
@@ -434,7 +419,6 @@
       .field[data-span="2"] { grid-column: span 2; }
     }
     @media (min-width: 48rem) and (max-width: 63.98rem) {
-      .nav-links { display: flex; }
       .services-grid { grid-template-columns: 1.2fr 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
     }
@@ -498,8 +482,6 @@
       <a class="brand" href="#top" aria-label="sKlima kezdőlap">
         <span class="nav-brand-text"><span class="brand-s">s</span><span class="brand-klima">Klima</span></span>
       </a>
-      <nav class="nav-links" aria-label="Elsődleges navigáció">
-      </nav>
       <div class="header-actions"><a class="btn btn-primary" href="#register">Kapcsolatfelvétel</a></div>
     </div>
   </header>
@@ -571,11 +553,11 @@
       </div>
     </section>
 
-    <section class="section section-divided" id="services">
+    <section class="section" id="services">
       <div class="container-wide">
         <div class="section-head">
           <h2>Lakossági klíma telepítése, karbantartása és tisztítása</h2>
-          <h3>Maglódon és körzetében</strong></h3>
+          <h3>Maglódon és körzetében</h3>
         </div>
         <div class="services-grid">
           <article class="service-card service-featured" data-service-card>
@@ -823,22 +805,22 @@
     </section>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
     (function () {
       const header = document.getElementById('siteHeader'), hero = document.getElementById('heroSection'),
             giantText = document.getElementById('giantText'),
-            serviceSelect = document.getElementById('serviceSelect'), display = document.getElementById('selectedServiceDisplay'),
+            serviceSelect = document.getElementById('serviceSelect'),
             form = document.getElementById('serviceForm'), status = document.getElementById('formStatus');
       const serviceButtons = document.querySelectorAll('[data-service]');
 
       const acScreen = document.getElementById('acScreen');
+      const acUnit = document.getElementById('acUnit');
       const remote = document.getElementById('remote');
       const remoteScreen = document.getElementById('remoteScreen');
       const airFlowContainer = document.getElementById('airFlowContainer');
 
       let currentTemp = 30;
-      let targetTemp = 22;
+      let targetTemp = 30;
       let isCounting = false;
       let countingInterval = null;
       let isFormSubmitted = false;
@@ -889,8 +871,6 @@
 
             acScreen.setAttribute('data-temp', currentTemp);
             remoteScreen.textContent = currentTemp + '°C';
-            
-            checkAirFlowVisibility(targetTemp);
 
             if (currentTemp === targetTemp) {
               clearInterval(countingInterval);
@@ -901,8 +881,6 @@
         }, 400);
       }
 
-      const acUnit = document.getElementById('acUnit');
-
       remote.addEventListener('click', toggleACState);
 
       acUnit.addEventListener('click', () => {
@@ -911,33 +889,7 @@
         acUnit.addEventListener('animationend', () => acUnit.classList.remove('ac-pulse'), { once: true });
       });
 
-      checkAirFlowVisibility(null);
-
-      setTimeout(() => {
-        if (currentTemp === 30 && targetTemp === 22 && !acScreen.classList.contains('cooling')) {
-          isCounting = true;
-          remote.classList.add('sending');
-          setTimeout(() => {
-            remote.classList.remove('sending');
-            remote.classList.add('cooling-mode');
-            acScreen.classList.add('cooling');
-            document.body.classList.add('ac-cooling');
-            
-            countingInterval = setInterval(() => {
-              currentTemp--;
-              acScreen.setAttribute('data-temp', currentTemp);
-              remoteScreen.textContent = currentTemp + '°C';
-              
-              checkAirFlowVisibility(targetTemp);
-              
-              if (currentTemp <= 22) {
-                clearInterval(countingInterval);
-                isCounting = false;
-              }
-            }, 300);
-          }, 400);
-        }
-      }, 1800);
+      setTimeout(toggleACState, 1800);
 
       new IntersectionObserver(entries => {
         const isHeroTopVisible = entries[0].isIntersecting;
@@ -948,7 +900,6 @@
         rootMargin: "-40px 0px 0px 0px"
       }).observe(hero);
 
-      if (window.emailjs) emailjs.init('YOUR_PUBLIC_KEY');
 
       const customSelectEl = document.getElementById('serviceCustomSelect');
       const customSelectIcon = document.getElementById('serviceSelectIcon');
@@ -1037,8 +988,6 @@
         };
 
         try {
-          // const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbySUg0Dcg5RLECoT6t5M6EgKcvR-XmtznrVgCUxDu7V7Y-LHGumhH6O_rM0NbqVs09h/exec';
-          // const GOOGLE_SHEET_URL1 = 'https://script.google.com/macros/s/AKfycbyMxanZlTA_vdI5dMc8w5I50bhWMKcw74P2ERTvf0nj81unoYzG7_Cn-6sIXaow1dHn/exec';
           const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyMxanZlTA_vdI5dMc8w5I50bhWMKcw74P2ERTvf0nj81unoYzG7_Cn-6sIXaow1dHn/exec';
           isFormSubmitted = true;
           const submitBtn = form.querySelector('button[type="submit"]');
@@ -1054,7 +1003,6 @@
             body: JSON.stringify(formData)
           });
           
-          console.log('Data saved to Google Sheets!');
           status.textContent = 'Időpont foglalás felvéve! Hamarosan keresni fogjuk emailen vagy telefonon.';
           status.classList.add('success');
           submitBtn.textContent = 'Időpont elküldve';
@@ -1091,19 +1039,12 @@
         });
       }
 
-      document.querySelectorAll('.copy-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          triggerCopy(this);
-        });
-      });
+      document.querySelectorAll('.copy-btn').forEach(btn => btn.addEventListener('click', () => triggerCopy(btn)));
 
-      document.querySelectorAll('.clickable-text.data-to-copy').forEach(textEl => {
-        textEl.addEventListener('click', function() {
-          const targetBtnId = this.getAttribute('data-copy-target');
-          const targetBtn = document.getElementById(targetBtnId);
-          if (targetBtn) {
-            triggerCopy(targetBtn);
-          }
+      document.querySelectorAll('.clickable-text.data-to-copy').forEach(el => {
+        el.addEventListener('click', () => {
+          const btn = document.getElementById(el.getAttribute('data-copy-target'));
+          if (btn) triggerCopy(btn);
         });
       });
     })();

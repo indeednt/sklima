@@ -232,7 +232,7 @@
     
     .service-price { display: grid; gap: var(--space-1); }
     .service-price strong { font-size: clamp(2rem, 1.4rem + 1.2vw, 2.5rem); line-height: 1; font-family: var(--font-display); color: #0c1e2f; }
-    .service-price span, .service-note, .service-subnote { color: var(--color-text-muted); }
+    .service-price span, .service-note, .service-subnote { font-size: clamp(1.5rem, 1.4rem + 1.2vw, 1.6rem); line-height: 1; font-family: var(--font-display); color: #0c1e2f;color: var(--color-text-muted); }
     .service-note { padding-top: var(--space-4); border-top: 1px solid var(--color-divider); font-size: var(--text-sm); }
     .service-subnote { font-size: var(--text-sm); }
     
@@ -378,8 +378,8 @@
       <div class="container-wide">
         <div class="hero-grid" id="heroSection">
           <div class="hero-copy">
-            <h1>Tiszta szerelés, gyors hűtés, biztos klíma otthonra.</h1>
-            <p>Az sKlíma <strong>Maglód körzetében</strong> vállal lakossági klíma telepítést, karbantartást és tisztítást.</p>
+            <h1>Ne várja meg a következő hőhullámot!</h1>
+            <h2>Gyors, precíz klímatelepítés -karbantartás rejtett költségek nélkül.</h2>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#register">Kapcsolatfelvétel</a>
               <a class="btn btn-secondary" href="#services">Szolgáltatások megtekintése</a>
@@ -427,7 +427,7 @@
             </div>
 
             <div class="hero-stats">
-              <div class="hero-stat"><span>Visszahívás</span><strong>24 órán belül</strong></div>
+              <div class="hero-stat"><span>Gyors válasz</span><strong>24 órán belül</strong></div>
               <div class="hero-stat"><span>Garancia</span><strong>5 év</strong></div>
               <div class="hero-stat"><span>Telepítés</span><strong>1 nap</strong></div>
             </div>
@@ -439,8 +439,8 @@
     <section class="section section-divided" id="services">
       <div class="container-wide">
         <div class="section-head">
-          <h2>Elérhető szolgáltatások Maglódon és környékén.</h2>
-          <p>30 km-es távolságban.</p>
+          <h2>Lakossági klíma telepítés, karbantartás és tisztítás</h2>
+          <h3>Maglódon és körzetében</strong></h3>
         </div>
         <div class="services-grid">
           <article class="service-card service-featured" data-service-card>
@@ -454,12 +454,19 @@
                 </svg>
               </div>
             </div>
-            <div><h3>Klíma Telepítés</h3></div>
+            <div><h3>Telepítés</h3></div>
             <div class="service-price"><strong>100.000 Ft <span>-tól</span></strong><span>129.000 Ft-ig</span></div>
-            <ul class="service-list"><li>Tartalmazza: 3m hosszúságú cső</li><li>Tartalmazza: 1 db fal áttörés</li><li>Külső és belső egység beszerzése</li></ul>
+            <ul class="service-list">
+              <li>Helyszín előzetes felmérése és árajánlat megadása</li>
+              <li>Külső és belső egység beszerzése</li>
+              <li>Fal áttörése</li>
+              <li>Egységek felszerelése</li>
+              <li>Nyomáspróba, vákuumozás majd a hálozatra való bekötés</li>
+              <li>Garanciajegy kitöltése és az NKVH felé a telepítési tanúsítvány lejelentése</li>
+            </ul>
             <div class="service-note">További fal áttörés: 9.990 - 19.990 Ft</div>
             <div class="service-subnote">A fal vastagsága és anyag függvényében</div>
-            <div class="card-actions"><button class="select-btn is-selected" type="button" data-service="Klíma Telepítés">Kiválasztva</button></div>
+            <div class="card-actions"><button class="select-btn is-selected" type="button" data-service="Telepítés">Kiválasztva</button></div>
           </article>
           
           <article class="service-card" data-service-card>
@@ -472,10 +479,16 @@
                 </svg>
               </div>
             </div>
-            <div><h3>Klíma Tisztítás</h3><p>Éves tisztítás és ellenőrzés</p></div>
+            <div><h3>Tisztítás</h3><p>Éves tisztítás és ellenőrzés</p></div>
             <div class="service-price"><strong>19.990 Ft <span>-tól</span></strong><span>29.990 Ft-ig</span></div>
-            <ul class="service-list"><li>Szűrők tisztítása, fertőtlenítése</li><li>Gáznyomás ellenőrzése</li><li>Cseppvíz elvezetés ellenőrzése</li></ul>
-            <div class="card-actions"><button class="select-btn" type="button" data-service="Klíma Karbantartás">Kiválasztom</button></div>
+            <ul class="service-list">
+              <li>Állapotfelmérés</li>
+              <li>Nagynyomású mosás</li>
+              <li>Baktériumölő tisztítószer felvitele</li>
+              <li>Száradás utáni összeszerelés</li>
+              <li>A jótállás megőrzéséhez szükséges munkalap kitöltése</li>
+            </ul>
+            <div class="card-actions"><button class="select-btn" type="button" data-service="Karbantartás">Kiválasztom</button></div>
           </article>
           
           <div class="services-stacked-column">
@@ -490,9 +503,9 @@
                   </svg>
                 </div>
               </div>
-              <div><h3>Klíma Leszerelése</h3></div>
+              <div><h3>Leszerelése</h3></div>
               <div class="service-price"><strong>19.990 Ft <span>-tól</span></strong><span>39.990 Ft-ig</span></div>
-              <div class="card-actions"><button class="select-btn" type="button" data-service="Klíma Leszerelése">Kiválasztom</button></div>
+              <div class="card-actions"><button class="select-btn" type="button" data-service="Leszerelése">Kiválasztom</button></div>
             </article>
             
             <article class="service-card" data-service-card>
@@ -503,9 +516,9 @@
                   </svg>
                 </div>
               </div>
-              <div><h3>Klíma Hibajavítás</h3><p>Hiba elhárítása</p></div>
-              <div class="service-price"><strong>Egyedi</strong><span>árajánlat alapján</span></div>
-              <div class="card-actions"><button class="select-btn" type="button" data-service="Klíma Hibajavítás">Kiválasztom</button></div>
+              <div><h3>Hibajavítás</h3></div>
+              <div class="service-price"><strong>Egyedi</strong><span>árajánlat a helyszíni felmérés után</span></div>
+              <div class="card-actions"><button class="select-btn" type="button" data-service="Hibajavítás">Kiválasztom</button></div>
             </article>
           </div>
         </div>
@@ -525,7 +538,7 @@
                 <div class="field">
                   <label for="serviceSelect">Kiválasztott szolgáltatás</label>
                   <select id="serviceSelect" name="service" required>
-                    <option>Klíma Telepítés</option><option>Klíma Karbantartás</option><option>Klíma Leszerelése</option><option>Klíma Hibajavítás</option>
+                    <option>Telepítés</option><option>Karbantartás</option><option>Leszerelése</option><option>Hibajavítás</option>
                   </select>
                 </div>
                 <div class="field"><label for="fullName">Teljes név</label><input id="fullName" name="fullName" type="text" placeholder="Példa István" required /></div>
@@ -545,6 +558,7 @@
                   <div class="time-selector-container">
                     <select id="preferredHour" name="preferredHour" required aria-label="Óra kiválasztása">
                       <option value="" disabled selected>Óra</option>
+                      <option value="null">-</option>
                       <option value="08">08 óra</option>
                       <option value="09">09 óra</option>
                       <option value="10">10 óra</option>
@@ -559,6 +573,7 @@
                     </select>
                     <select id="preferredMinute" name="preferredMinute" required aria-label="Perc kiválasztása">
                       <option value="" disabled selected>Perc</option>
+                      <option value="null">-</option>
                       <option value="00">00 perc</option>
                       <option value="15">15 perc</option>
                       <option value="30">30 perc</option>
@@ -828,7 +843,7 @@
           });
           
           console.log('Data saved to Google Sheets!');
-          status.textContent = 'Sikeres időpont foglalás! Hamarosan keresni fogjuk.';
+          status.textContent = 'Időpont foglalás felvéve! Hamarosan keresni fogjuk emailen vagy telefonon.';
           status.classList.add('success');
           submitBtn.textContent = 'Időpont elküldve';
           
@@ -844,7 +859,7 @@
         }
       });
 
-      updateService('Klíma Telepítés');
+      updateService('Telepítés');
 
       function triggerCopy(buttonElement) {
         const textToCopy = buttonElement.getAttribute('data-copy');

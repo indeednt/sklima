@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="hu">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sKlíma</title>
-  <meta name="description" content="Egylapos magyar klímaszerelő weboldal látványos hőssel, szolgáltatásokkal és az alján szolgáltatás-regisztrációs űrlappal." />
+  <meta name="description" content="Egylapos magyar klímaszerelő weboldal látványos hőssel, szolgáltatásokhal és az alján szolgáltatás-regisztrációs űrlappal." />
   <link rel="preconnect" href="https://api.fontshare.com" />
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=clash-display@500,600,700&display=swap" />
   <style>
@@ -266,8 +265,12 @@
     .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15); background: var(--color-surface); }
     .field textarea { min-height: 8rem; resize: vertical; }
     .time-selector-container { display: flex; gap: var(--space-2); }
+    
     .checkbox-row { display: flex; align-items: start; gap: var(--space-3); color: var(--color-text-muted); font-size: var(--text-sm); cursor: pointer; }
-    .checkbox-row input { width: 1.2rem; height: 1.2rem; margin-top: 0.15rem; accent-color: var(--color-primary); }
+    .checkbox-row input { width: 1.2rem; height: 1.2rem; margin-top: 0.15rem; accent-color: var(--color-primary); flex-shrink: 0; }
+    .checkbox-row a { color: var(--color-primary); text-decoration: underline; font-weight: 500; }
+    .checkbox-row a:hover { color: var(--color-primary-hover); }
+    
     .status-note { font-weight: 700; font-size: var(--text-sm); min-height: 1.5rem; }
     .status-note.success { color: var(--color-success); }
     .status-note.error { color: var(--color-danger); }
@@ -378,7 +381,7 @@
       <div class="container-wide">
         <div class="hero-grid" id="heroSection">
           <div class="hero-copy">
-            <h1>Ne várja meg a következő hőhullámot!</h1>
+            <h1>Ne várd meg a következő hőhullámot!</h1>
             <h2>Gyors, precíz klímatelepítés -karbantartás rejtett költségek nélkül.</h2>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#register">Kapcsolatfelvétel</a>
@@ -503,9 +506,9 @@
                   </svg>
                 </div>
               </div>
-              <div><h3>Leszerelése</h3></div>
+              <div><h3>Leszerelés</h3></div>
               <div class="service-price"><strong>19.990 Ft <span>-tól</span></strong><span>39.990 Ft-ig</span></div>
-              <div class="card-actions"><button class="select-btn" type="button" data-service="Leszerelése">Kiválasztom</button></div>
+              <div class="card-actions"><button class="select-btn" type="button" data-service="Leszerelés">Kiválasztom</button></div>
             </article>
             
             <article class="service-card" data-service-card>
@@ -583,7 +586,12 @@
                 </div>
                 <div class="field" data-span="2"><label for="notes">Megjegyzés</label><textarea id="notes" name="notes" placeholder="Írd le a részleteket..."></textarea></div>
               </div>
-              <label class="checkbox-row" for="consent"><input id="consent" name="consent" type="checkbox" required /><span>Elfogadom a feltételeket.</span></label>
+              
+              <label class="checkbox-row" for="consent">
+                <input id="consent" name="consent" type="checkbox" required />
+                <span>Megismertem és elfogadom az <a href="adatvedelem.html" target="_blank">Adatkezelési Tájékoztatót</a>, és hozzájárulok, hogy az sKlíma a megadott adataimat kapcsolatfelvétel céljából kezelje.</span>
+              </label>
+
               <div class="card-actions">
                 <button class="btn btn-primary" type="submit">Időpont foglalás küldése</button>
                 <span class="status-note" id="formStatus" aria-live="polite"></span>
@@ -826,8 +834,9 @@
         };
 
         try {
-          const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbySUg0Dcg5RLECoT6t5M6EgKcvR-XmtznrVgCUxDu7V7Y-LHGumhH6O_rM0NbqVs09h/exec';
-          
+          // const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbySUg0Dcg5RLECoT6t5M6EgKcvR-XmtznrVgCUxDu7V7Y-LHGumhH6O_rM0NbqVs09h/exec';
+          // const GOOGLE_SHEET_URL1 = 'https://script.google.com/macros/s/AKfycbyMxanZlTA_vdI5dMc8w5I50bhWMKcw74P2ERTvf0nj81unoYzG7_Cn-6sIXaow1dHn/exec';
+          const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyMxanZlTA_vdI5dMc8w5I50bhWMKcw74P2ERTvf0nj81unoYzG7_Cn-6sIXaow1dHn/exec';
           isFormSubmitted = true;
           const submitBtn = form.querySelector('button[type="submit"]');
           submitBtn.disabled = true;

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sklima.hu/sitemap.xml

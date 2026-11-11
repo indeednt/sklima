@@ -46,6 +46,12 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+/* Satoshi text: fractional glyph positioning. Without it, small uppercase labels
+   (e.g. "MEGBÍZHATÓSÁG") get visible gaps after T/Z on Chromium/Linux.
+   Clash Display headings keep the default rendering so their word spaces stay as designed. */
+body { text-rendering: geometricPrecision; }
+h1, h2, h3, .hero-stat strong, .service-price strong, .service-price span, .service-note, .service-subnote,
+.nav-phone, .nav-brand-text, .giant-hero-text, .info-item .clickable-text, .code { text-rendering: auto; }
 body { font-family: var(--font-body); font-size: var(--text-base); line-height: 1.6; color: var(--color-text); background: var(--color-bg); }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
